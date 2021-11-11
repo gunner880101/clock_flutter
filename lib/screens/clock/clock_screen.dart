@@ -1,5 +1,5 @@
 import 'package:clock_flutter/screens/clock/analog/analog_clock.dart';
-import 'package:clock_flutter/screens/clock/city_clock/CityClocks.dart';
+import 'package:clock_flutter/screens/clock/city_clock/city_clocks.dart';
 import 'package:clock_flutter/screens/clock/digital/digital_clock.dart';
 import 'package:clock_flutter/utils/size_config.dart';
 import 'package:flutter/material.dart';
