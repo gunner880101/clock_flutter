@@ -1,5 +1,5 @@
-import 'package:clock_flutter/screens/analog/components/analog_clock_hands.dart';
-import 'package:clock_flutter/screens/analog/components/analog_clock_painter.dart';
+import 'package:clock_flutter/screens/clock/analog/components/analog_clock_hands.dart';
+import 'package:clock_flutter/screens/clock/analog/components/analog_clock_painter.dart';
 import 'package:clock_flutter/utils/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -16,18 +16,20 @@ class _AnalogClockState extends State<AnalogClock> {
   Widget build(BuildContext context) {
     var size = widget.clockSize ??
         (SizeConfig.screenWidth! - SizeConfig().getHeight(50.0));
-    return Container(
-      child: Stack(
-        children: [
-          Container(
-            width: size,
-            height: size,
-            child: CustomPaint(
-              painter: AnalogClockPainter(),
+    return Center(
+      child: Container(
+        child: Stack(
+          children: [
+            Container(
+              width: size,
+              height: size,
+              child: CustomPaint(
+                painter: AnalogClockPainter(),
+              ),
             ),
-          ),
-          AnalogClockHands(size: size),
-        ],
+            AnalogClockHands(size: size),
+          ],
+        ),
       ),
     );
   }

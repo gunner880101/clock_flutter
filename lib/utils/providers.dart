@@ -1,11 +1,20 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class ClockRefreshNotifier with ChangeNotifier {
-  bool _shouldNotify = false;
+  Timer? _timer;
 
-  void notifyUpdate({shouldNotify = false}) {
-    if (_shouldNotify) {
-      notifyListeners();
+  void startTimer() {
+    /// prevent duplication of timer
+    if (_timer == null || _timer!.isActive) {
+      _timer = Timer.periodic(Duration(seconds: 1), (_) {
+        notifyListeners();
+      });
     }
+  }
+
+  void stopTimer() {
+    _timer?.cancel();
   }
 }
