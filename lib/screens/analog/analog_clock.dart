@@ -1,4 +1,3 @@
-import 'package:clock_flutter/screens/analog/components/analog_clock_hand_painter.dart';
 import 'package:clock_flutter/screens/analog/components/analog_clock_hands.dart';
 import 'package:clock_flutter/screens/analog/components/analog_clock_painter.dart';
 import 'package:clock_flutter/utils/size_config.dart';

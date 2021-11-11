@@ -5,8 +5,6 @@ import 'package:clock_flutter/utils/common_utils.dart';
 import 'package:flutter/material.dart';
 
 class AnalogClockPainter extends CustomPainter {
-  final degreeOffset = -90.0;
-
   @override
   void paint(Canvas canvas, Size size) {
     var centerX = size.width / 2;
@@ -19,7 +17,8 @@ class AnalogClockPainter extends CustomPainter {
     var outlineBrush = Paint()
       ..color = clockForegroundColor
       ..style = PaintingStyle.stroke
-      ..strokeWidth = size.width / 20;
+      ..strokeWidth = size.width / 20
+      ..isAntiAlias = true;
 
     canvas.drawCircle(center, radius * 0.75, fillBrush);
     canvas.drawCircle(center, radius * 0.75, outlineBrush);
@@ -28,11 +27,13 @@ class AnalogClockPainter extends CustomPainter {
     var dashBrush = Paint()
       ..color = clockForegroundColor
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 2;
+      ..strokeWidth = 2
+      ..isAntiAlias = true;
     var dashBoldBrush = Paint()
       ..color = clockForegroundColor
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 3;
+      ..strokeWidth = 3
+      ..isAntiAlias = true;
 
     var outerRadius = radius * 0.8;
     var innerRadius = radius * 0.68;
