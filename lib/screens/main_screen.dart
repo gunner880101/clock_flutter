@@ -35,6 +35,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text('Clock')),
       body: PageView(
         controller: _pageController,
         physics: NeverScrollableScrollPhysics(),

@@ -15,35 +15,34 @@ class DigitalClock extends StatefulWidget {
 class _DigitalClockState extends State<DigitalClock> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        width: widget.clockSize,
-        height: widget.clockSize,
-        child: Consumer<ClockRefreshNotifier>(
-          builder: (context, provider, _) {
-            var now = DateTime.now();
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  getTimeString(now),
-                  style: TextStyle(
-                      fontSize: SizeConfig().getHeight(64.0),
-                      fontWeight: FontWeight.bold),
-                ),
-                SizedBox(
-                  height: SizeConfig().getHeight(8.0),
-                ),
-                Text(
-                  getDateString(now),
-                  style: TextStyle(
-                      fontSize: SizeConfig().getHeight(32.0),
-                      fontWeight: FontWeight.bold),
-                ),
-              ],
-            );
-          },
-        ),
+    return Container(
+      width: widget.clockSize,
+      height: widget.clockSize,
+      child: Consumer<ClockRefreshNotifier>(
+        builder: (context, provider, _) {
+          var now = DateTime.now();
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                getTimeString(now),
+                style: TextStyle(
+                    fontSize: SizeConfig().getHeight(64.0),
+                    fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                height: SizeConfig().getHeight(8.0),
+              ),
+              Text(
+                getDateString(now),
+                style: TextStyle(
+                    fontSize: SizeConfig().getHeight(32.0),
+                    fontWeight: FontWeight.bold),
+              ),
+            ],
+          );
+        },
       ),
     );
   }

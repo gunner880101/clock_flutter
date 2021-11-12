@@ -1,5 +1,5 @@
+import 'package:clock_flutter/constants.dart';
 import 'package:clock_flutter/screens/clock/analog/analog_clock.dart';
-import 'package:clock_flutter/screens/clock/city_clock/city_clocks.dart';
 import 'package:clock_flutter/screens/clock/digital/digital_clock.dart';
 import 'package:clock_flutter/utils/size_config.dart';
 import 'package:flutter/material.dart';
@@ -16,22 +16,22 @@ class _ClockScreenState extends State<ClockScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          GestureDetector(
-            onTap: () {
-              setState(() {
-                _currentIndex = (_currentIndex + 1) % 2;
-              });
-            },
+      body: GestureDetector(
+        onTap: () {
+          setState(() {
+            _currentIndex = (_currentIndex + 1) % 2;
+          });
+        },
+        child: Center(
+          child: Container(
+            width: SizeConfig().getHeight(clockSize),
+            height: SizeConfig().getHeight(clockSize),
             child: AnimatedCrossFade(
               firstChild: AnalogClock(
-                clockSize: SizeConfig().getHeight(350.0),
+                clockSize: SizeConfig().getHeight(clockSize),
               ),
               secondChild: DigitalClock(
-                clockSize: SizeConfig().getHeight(350.0),
+                clockSize: SizeConfig().getHeight(clockSize),
               ),
               duration: Duration(milliseconds: 500),
               crossFadeState: _currentIndex == 0
@@ -39,10 +39,7 @@ class _ClockScreenState extends State<ClockScreen> {
                   : CrossFadeState.showSecond,
             ),
           ),
-          Expanded(
-            child: CityClocks(),
-          ),
-        ],
+        ),
       ),
     );
   }

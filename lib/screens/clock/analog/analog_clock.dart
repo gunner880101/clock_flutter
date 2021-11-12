@@ -16,20 +16,20 @@ class _AnalogClockState extends State<AnalogClock> {
   Widget build(BuildContext context) {
     var size = widget.clockSize ??
         (SizeConfig.screenWidth! - SizeConfig().getHeight(50.0));
-    return Center(
-      child: Container(
-        child: Stack(
-          children: [
-            Container(
-              width: size,
-              height: size,
-              child: CustomPaint(
-                painter: AnalogClockPainter(),
-              ),
+    return Container(
+      width: size,
+      height: size,
+      child: Stack(
+        children: [
+          Container(
+            width: size,
+            height: size,
+            child: CustomPaint(
+              painter: AnalogClockPainter(),
             ),
-            AnalogClockHands(size: size),
-          ],
-        ),
+          ),
+          AnalogClockHands(size: size),
+        ],
       ),
     );
   }

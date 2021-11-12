@@ -1,13 +1,15 @@
 import 'dart:math';
 
+import 'package:intl/intl.dart';
+
 double degreeToRadian(double degree) {
   return degree * pi / 180;
 }
 
 String getTimeString(DateTime dateTime) {
-  return dateTime.toIso8601String().substring(11, 19);
+  return DateFormat('HH:mm:ss').format(dateTime);
 }
 
 String getDateString(DateTime dateTime) {
-  return '${dateTime.day}/${dateTime.month}/${dateTime.year}';
+  return DateFormat('EEE dd MMM yyyy').format(dateTime);
 }
