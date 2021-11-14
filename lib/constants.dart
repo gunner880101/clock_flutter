@@ -11,9 +11,3 @@ Color secondHandColor = Color(0xFFFF0000);
 
 final degreeOffset = -90.0;
 final clockSize = 350.0;
-
-List<AlarmInfo> alarms = [
-  AlarmInfo(dateTime: DateTime.now(), note: "First alarm", active: true),
-  AlarmInfo(dateTime: DateTime.now(), note: "Second alarm", active: false),
-  AlarmInfo(dateTime: DateTime.now(), note: "Third alarm", active: false),
-];

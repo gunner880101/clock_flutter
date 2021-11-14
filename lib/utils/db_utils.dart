@@ -47,4 +47,17 @@ class AlarmManager {
     var result = await db?.insert(tableName, info.toJson());
     print('db insert result: $result');
   }
+
+  Future<List<AlarmInfo>> getAlarms() async {
+    List<AlarmInfo> _alarms = [];
+
+    var db = await this.database;
+    var result = await db!.query(tableName);
+    result.forEach((element) {
+      var alarmInfo = AlarmInfo.fromJson(element);
+      _alarms.add(alarmInfo);
+    });
+
+    return _alarms;
+  }
 }

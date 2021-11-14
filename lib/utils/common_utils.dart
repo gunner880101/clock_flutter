@@ -13,3 +13,7 @@ String getTimeString(DateTime dateTime) {
 String getDateString(DateTime dateTime) {
   return DateFormat('EEE dd MMM yyyy').format(dateTime);
 }
+
+String getAlarmTimeString(DateTime dateTime) {
+  return DateFormat('HH:mm').format(dateTime);
+}

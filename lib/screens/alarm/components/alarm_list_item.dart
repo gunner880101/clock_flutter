@@ -1,9 +1,13 @@
-import 'package:clock_flutter/constants.dart';
+import 'package:clock_flutter/models/alarm_info.dart';
+import 'package:clock_flutter/utils/common_utils.dart';
 import 'package:flutter/material.dart';
 
 class AlarmListItem extends StatefulWidget {
   final int itemIndex;
-  const AlarmListItem({Key? key, required this.itemIndex}) : super(key: key);
+  final AlarmInfo alarmInfo;
+  const AlarmListItem(
+      {Key? key, required this.itemIndex, required this.alarmInfo})
+      : super(key: key);
 
   @override
   _AlarmListItemState createState() => _AlarmListItemState();
@@ -15,10 +19,10 @@ class _AlarmListItemState extends State<AlarmListItem> {
     return Card(
       elevation: 6.0,
       child: ListTile(
-        title: Text(alarms[widget.itemIndex].dateTime!.toString()),
-        subtitle: Text(alarms[widget.itemIndex].note!),
+        title: Text(getAlarmTimeString(widget.alarmInfo.dateTime!)),
+        subtitle: Text(widget.alarmInfo.note!),
         leading: Switch(
-          value: alarms[widget.itemIndex].active!,
+          value: widget.alarmInfo.active == 1,
           onChanged: (bool value) {},
         ),
       ),

@@ -12,7 +12,7 @@ class AlarmInfo {
   });
 
   String? note;
-  bool? active;
+  int? active;
   DateTime? dateTime;
 
   factory AlarmInfo.fromJson(Map<String, dynamic> json) => AlarmInfo(
