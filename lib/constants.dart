@@ -13,7 +13,7 @@ final degreeOffset = -90.0;
 final clockSize = 350.0;
 
 List<AlarmInfo> alarms = [
-  AlarmInfo(time: DateTime.now(), note: "First alarm", active: true),
-  AlarmInfo(time: DateTime.now(), note: "Second alarm", active: false),
-  AlarmInfo(time: DateTime.now(), note: "Third alarm", active: false),
+  AlarmInfo(dateTime: DateTime.now(), note: "First alarm", active: true),
+  AlarmInfo(dateTime: DateTime.now(), note: "Second alarm", active: false),
+  AlarmInfo(dateTime: DateTime.now(), note: "Third alarm", active: false),
 ];

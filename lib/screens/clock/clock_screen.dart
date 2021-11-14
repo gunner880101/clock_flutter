@@ -22,23 +22,36 @@ class _ClockScreenState extends State<ClockScreen> {
             _currentIndex = (_currentIndex + 1) % 2;
           });
         },
-        child: Center(
-          child: Container(
-            width: SizeConfig().getHeight(clockSize),
-            height: SizeConfig().getHeight(clockSize),
-            child: AnimatedCrossFade(
-              firstChild: AnalogClock(
-                clockSize: SizeConfig().getHeight(clockSize),
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(SizeConfig().getHeight(12.0)),
+              child: Text(
+                'Clock',
+                style: TextStyle(fontSize: SizeConfig().getHeight(24.0)),
               ),
-              secondChild: DigitalClock(
-                clockSize: SizeConfig().getHeight(clockSize),
-              ),
-              duration: Duration(milliseconds: 500),
-              crossFadeState: _currentIndex == 0
-                  ? CrossFadeState.showFirst
-                  : CrossFadeState.showSecond,
             ),
-          ),
+            Expanded(
+              child: Center(
+                child: Container(
+                  width: SizeConfig().getHeight(clockSize),
+                  height: SizeConfig().getHeight(clockSize),
+                  child: AnimatedCrossFade(
+                    firstChild: AnalogClock(
+                      clockSize: SizeConfig().getHeight(clockSize),
+                    ),
+                    secondChild: DigitalClock(
+                      clockSize: SizeConfig().getHeight(clockSize),
+                    ),
+                    duration: Duration(milliseconds: 500),
+                    crossFadeState: _currentIndex == 0
+                        ? CrossFadeState.showFirst
+                        : CrossFadeState.showSecond,
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
