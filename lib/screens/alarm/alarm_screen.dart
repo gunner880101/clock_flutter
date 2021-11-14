@@ -55,6 +55,21 @@ class _AlarmScreenState extends State<AlarmScreen> {
                           return AlarmListItem(
                             itemIndex: index,
                             alarmInfo: _curAlarmList[index],
+                            onRemoveAlarm: (info) {
+                              AlarmInfo alarmInfo = info;
+                              _alarmManager.delete(alarmInfo.id!).then((value) {
+                                print('$value rows removed!');
+                                getAlarmData();
+                              });
+                            },
+                            onUpdateActive: ({id, active}) {
+                              _alarmManager
+                                  .updateAlarmActive(id, active: active)
+                                  .then((value) {
+                                print('$value rows updated!');
+                                getAlarmData();
+                              });
+                            },
                           );
                         }),
                   ),

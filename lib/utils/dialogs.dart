@@ -43,7 +43,9 @@ class _AlarmAddDialogState extends State<AlarmAddDialog> {
       child: Container(
         width: SizeConfig().getHeight(300.0),
         height: SizeConfig().getHeight(300.0),
-        decoration: BoxDecoration(color: Colors.white),
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(SizeConfig().getHeight(12.0))),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -125,6 +127,84 @@ class _AlarmAddDialogState extends State<AlarmAddDialog> {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+void showRemoveAlarmConfirmDialog(BuildContext context, {Function? onAgreed}) {
+  showDialog(
+      context: context,
+      useSafeArea: false,
+      barrierColor: Colors.black.withOpacity(0.6),
+      builder: (context) {
+        return Scaffold(
+            resizeToAvoidBottomInset: false,
+            backgroundColor: Colors.transparent,
+            body: AlarmRemoveConfirmDialog(onAgreed: onAgreed));
+      });
+}
+
+class AlarmRemoveConfirmDialog extends StatefulWidget {
+  final Function? onAgreed;
+  const AlarmRemoveConfirmDialog({Key? key, this.onAgreed}) : super(key: key);
+
+  @override
+  _AlarmRemoveConfirmDialogState createState() =>
+      _AlarmRemoveConfirmDialogState();
+}
+
+class _AlarmRemoveConfirmDialogState extends State<AlarmRemoveConfirmDialog> {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        width: SizeConfig().getHeight(300.0),
+        height: SizeConfig().getHeight(250.0),
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(SizeConfig().getHeight(12.0))),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Padding(
+                padding: EdgeInsets.all(SizeConfig().getHeight(8.0)),
+                child: Text(
+                  'Do you want to remove this alarm?',
+                  style: TextStyle(fontSize: SizeConfig().getHeight(20.0)),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text(
+                      'Disagree',
+                      style: TextStyle(fontSize: SizeConfig().getHeight(20.0)),
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      widget.onAgreed!();
+                      Navigator.pop(context);
+                    },
+                    child: Text(
+                      'Agree',
+                      style: TextStyle(fontSize: SizeConfig().getHeight(20.0)),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

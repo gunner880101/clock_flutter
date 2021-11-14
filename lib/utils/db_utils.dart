@@ -60,4 +60,17 @@ class AlarmManager {
 
     return _alarms;
   }
+
+  Future<int> delete(int rid) async {
+    var db = await this.database;
+    return await db!.delete(tableName, where: '$id=?', whereArgs: [rid]);
+  }
+
+  Future<int> updateAlarmActive(int rid, {bool active = true}) async {
+    var db = await this.database;
+    Map<String, Object?> values = {};
+    values.putIfAbsent('active', () => active ? 1 : 0);
+    return await db!
+        .update(tableName, values, where: '$id=?', whereArgs: [rid]);
+  }
 }
