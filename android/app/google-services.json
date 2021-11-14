@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "737307355902",
+    "project_id": "clock-flutter-a0991",
+    "storage_bucket": "clock-flutter-a0991.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:737307355902:android:67c3ace95c982fc9ad53af",
+        "android_client_info": {
+          "package_name": "com.example.clock_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "737307355902-he7ssk1thmjep6f49ncfbn7g09efro0j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.clock_flutter",
+            "certificate_hash": "559aee5ad2ca300a897e65ece32f846c2a1fd23c"
+          }
+        },
+        {
+          "client_id": "737307355902-hgnjjvvd3qldpm25noc1dosb2lmorsdl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnpJyJAd0McxgCeEJ-X9FVFdZg797rE3s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "737307355902-hgnjjvvd3qldpm25noc1dosb2lmorsdl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
